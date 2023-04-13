@@ -1,0 +1,9 @@
+{
+    "name": "English",
+    "code": "en",
+    "writeScreen": {
+        "title": "Write Screen",
+        "titleShort": "Write",
+        "welcome": "Hi {{name}}!"
+    }
+}

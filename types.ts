@@ -1,0 +1,1 @@
+export interface ScreenName {value: 'Home' | 'About' | 'Settings' | 'Help' | 'Details' | 'Analyze' | 'Write' | 'History'}
