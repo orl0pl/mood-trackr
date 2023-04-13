@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "mood-trackr",
-    "slug": "mood-trackr",
+    "name": "MoodTrackr",
+    "slug": "MoodTrackr",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
