@@ -5,5 +5,33 @@
         "title": "Write Screen",
         "titleShort": "Write",
         "welcome": "Hi {{name}}!"
+    },
+    "analyzeScreen": {
+        "title": "Analyze Screen",
+        "titleShort": "Analyze"
+    },
+    "historyScreen": {
+        "title": "History Screen",
+        "titleShort": "History"
+    },
+    "aboutScreen": {
+        "title": "About Us Screen",
+        "titleShort": "About Us"
+    },
+    "settingsScreen": {
+        "title": "Settings Screen",
+        "language": {
+            "choose": "Choose language"
+        },
+        "titleShort": "Settings"
+    },
+    "detailsScreen": {
+        "title": "Details Screen",
+        "titleShort": "Details"
+    },
+    "helpScreen": {
+        "title": "Help Screen",
+        "titleShort": "Help"
     }
+
 }

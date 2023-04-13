@@ -1,0 +1,9 @@
+{
+    "name": "Polski",
+    "code": "pl",
+    "writeScreen": {
+        "title": "Ekran Pisania",
+        "titleShort": "Pisz",
+        "welcome": "Cześć {{name}}!"
+    }
+}

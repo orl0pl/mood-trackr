@@ -17,11 +17,13 @@ import HelpScreen from './screens/Help';
 import HistoryScreen from './screens/History';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import enLocale from './locales/en.json';
+import plLocale from './locales/pl.json';
+import { Provider } from 'react-native-paper';
 
 const Stack = createNativeStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
-const languageDetector = {
+const languageDetector: any = {
   type: 'languageDetector',
   async: true,
   detect: (callback: (language: string) => void) => {
@@ -48,9 +50,11 @@ i18n
     resources: {
       en: {
         translation: enLocale
+      },
+      pl: {
+        translation: plLocale
       }
     },
-    lng: "en", // if you're using a language detector, do not define the lng option
     fallbackLng: "en",
     compatibilityJSON: "v3",
     interpolation: {
@@ -59,9 +63,11 @@ i18n
   });
 
 function TabScreensWrapper() {
+  const {t} = useTranslation();
   return (
-    <Tab.Navigator> 
+    <Tab.Navigator initialRouteName='Write'> 
       <Tab.Screen name="History" options={{
+        tabBarLabel: t('historyScreen.titleShort') || undefined,
         tabBarIcon: ({ color, focused }) => {
           return (
             <MaterialCommunityIcons name={focused ? 'view-list' : 'view-list-outline'} color={color} size={24} />
@@ -69,6 +75,7 @@ function TabScreensWrapper() {
         }
       }} component={HistoryScreen} />
       <Tab.Screen name="Write" component={WriteScreen} options={{
+        tabBarLabel: t('writeScreen.titleShort') || undefined,
         tabBarIcon: ({ color, focused }) => {
           return (
             <MaterialCommunityIcons name={focused ? 'pencil-plus' : 'pencil-plus-outline'} color={color} size={24} />
@@ -76,6 +83,7 @@ function TabScreensWrapper() {
         }
       }} />
       <Tab.Screen name="Analyze" component={AnalizeScreen} options={{
+        tabBarLabel: t('analyzeScreen.titleShort') || undefined,
         tabBarIcon: ({ color, focused }) => {
           return (
             <MaterialCommunityIcons name={focused ? 'file-chart' : 'file-chart-outline'} color={color} size={24} />
@@ -86,20 +94,25 @@ function TabScreensWrapper() {
   );
 }
 export default function App() {
+  const {t}= useTranslation();
   return (
-    <NavigationContainer>
+    <Provider>
+      <NavigationContainer>
       <Stack.Navigator screenOptions={{animation: 'fade_from_bottom'}}>
         <Stack.Screen name="Home" options={{
           headerShown: false,
           animation: 'slide_from_right',
           
         }} component={TabScreensWrapper} />
-        <Stack.Screen name="Settings" component={SettingsScreen} />
+        <Stack.Screen name="Settings" options={{
+          headerTitle: t('settingsScreen.title') || undefined,
+        }} component={SettingsScreen} />
         <Stack.Screen name="About" component={AboutScreen} />
         <Stack.Screen name="Help" component={HelpScreen} />
         <Stack.Screen name="Details" component={DetailsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
+    </Provider>
   );
 }
 
